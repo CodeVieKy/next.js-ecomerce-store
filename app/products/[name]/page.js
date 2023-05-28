@@ -1,7 +1,17 @@
 import Image from 'next/image';
+import { notFound } from 'next/navigation';
+import { products } from '../../../database/products';
 
 export default function ProductPage({ params }) {
-  console.log(params);
+  const singleProduct = products.find(
+    (product) => product.name === params.name,
+  );
+
+  console.log(singleProduct);
+  if (!singleProduct) {
+    notFound();
+  }
+
   return (
     <main>
       <h1>{params.name}</h1>
