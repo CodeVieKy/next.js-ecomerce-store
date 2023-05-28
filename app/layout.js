@@ -1,8 +1,10 @@
 import './globals.scss';
-import { Inter } from 'next/font/google';
+import { Orbitron } from 'next/font/google';
+import Image from 'next/image';
 import Link from 'next/link';
+import styles from './page.module.scss';
 
-const inter = Inter({ subsets: ['latin'] });
+const orbitron = Orbitron({ subsets: ['latin'] });
 
 export const metadata = {
   title: { default: "Marty's Cyberware Shop | MC", template: '%s | MC' },
@@ -13,7 +15,7 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body className={inter.className}>
+      <body className={orbitron.className}>
         <nav>
           <Link href="/">Home</Link> <Link href="/products">Products</Link>{' '}
           <Link href="/about">About</Link>
