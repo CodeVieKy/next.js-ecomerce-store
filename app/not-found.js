@@ -1,12 +1,12 @@
 export const productNotFoundMetadata = {
-  title: 'Animal Not Found',
+  title: 'Product Not Found',
   description: "sorry can't find the page you are looking for",
 };
 
-export default function AnimalsNotFound() {
+export default function ProductsNotFound() {
   return (
     <div>
-      Sorry this page was not found make sure you visit an animal page that
+      Sorry this page was not found make sure you visit a Product page that
       exists
     </div>
   );
