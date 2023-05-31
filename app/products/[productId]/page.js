@@ -5,21 +5,21 @@ import { getProductById } from '../../../database/products';
 export const dynamic = 'force-dynamic';
 
 export default function ProductPage({ params }) {
-  const singleProduct = getProductById(Number(params.ProductId));
+  const singleProduct = getProductById(Number(params.productId));
 
   console.log(singleProduct);
-  if (!singleProduct) {
-    notFound();
-  }
+  // if (!singleProduct) {
+  //  notFound();
+  // }
 
   return (
     <main>
-      <h1>{params.name}</h1>
+      <h1>{singleProduct.name}</h1>
       <Image
         src={`/images/${singleProduct.name}.png`}
         width={200}
         height={200}
-        alt=""
+        alt={''}
       />
       This is a carrying
     </main>

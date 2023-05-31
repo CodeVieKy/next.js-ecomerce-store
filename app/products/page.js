@@ -19,7 +19,7 @@ export default function ProductsPage() {
               src={`/images/${products.name}.png`}
               width={100}
               height={100}
-              alt=""
+              alt={''}
             />
           </div>
         );
