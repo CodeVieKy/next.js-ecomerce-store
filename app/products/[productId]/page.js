@@ -1,16 +1,22 @@
 import Image from 'next/image';
 import { notFound } from 'next/navigation';
 import { getProductById } from '../../../database/products';
+import { cookies } from 'next/headers';
+import ProductCommentBox from './ProductCommentBox';
 
 export const dynamic = 'force-dynamic';
 
 export default function ProductPage({ params }) {
   const singleProduct = getProductById(Number(params.productId));
+  // This is how I use cookies
+  // const allCookies = cookies().get(whateverweneed);
+
+  // console.log(whateverweneed.value;
 
   console.log(singleProduct);
-  // if (!singleProduct) {
-  //  notFound();
-  // }
+  if (!singleProduct) {
+    notFound();
+  }
 
   return (
     <main>
@@ -21,7 +27,8 @@ export default function ProductPage({ params }) {
         height={200}
         alt={''}
       />
-      This is a carrying
+      This is a {singleProduct.type} which replaces your {singleProduct.object}
+      <ProductCommentBox />;
     </main>
   );
 }

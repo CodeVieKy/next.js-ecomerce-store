@@ -1,0 +1,17 @@
+.navigator {
+  background-color: rgb(65, 0, 45);
+  padding: 8px;
+  display: flex;
+  gap: 1rem;
+
+  a {
+    background-color: transparent;
+  }
+}
+
+.generateButton {
+  background-color: white;
+  color: rgb(0, 31, 57);
+  padding: 5px;
+  border-radius: 5px;
+}

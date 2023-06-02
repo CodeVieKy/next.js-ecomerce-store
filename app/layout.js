@@ -1,8 +1,7 @@
 import './globals.scss';
 import { Orbitron } from 'next/font/google';
-import Image from 'next/image';
 import Link from 'next/link';
-import styles from './page.module.scss';
+import style from './layout.module.scss';
 
 const orbitron = Orbitron({ subsets: ['latin'] });
 
@@ -16,9 +15,10 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body className={orbitron.className}>
-        <nav>
+        <nav className={style.navigator}>
           <Link href="/">Home</Link> <Link href="/products">Products</Link>{' '}
           <Link href="/about">About</Link>
+          {Math.floor(Math.random() * 10)}
         </nav>
         {children}
       </body>
