@@ -1,3 +1,3 @@
-export default function CartPage() {
+/* export default function CartPage() {
   return <main>this is what you buy</main>;
-}
+} */

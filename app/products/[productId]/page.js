@@ -28,7 +28,10 @@ export default function ProductPage({ params }) {
         alt={''}
       />
       This is a {singleProduct.type} which replaces your {singleProduct.object}
-      <ProductCommentBox />;
+      <h1>
+        {singleProduct.id} {singleProduct.name}
+      </h1>
+      <ProductCommentBox productId={singleProduct.id} />;
     </main>
   );
 }
