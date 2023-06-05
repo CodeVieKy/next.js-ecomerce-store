@@ -1,7 +1,7 @@
 import Image from 'next/image';
 import { notFound } from 'next/navigation';
-import { getProductById } from '../../../database/products';
-import { cookies } from 'next/headers';
+import { getProductById, products } from '../../../database/products';
+import { getCookie } from 'next/headers';
 import ProductCommentBox from './ProductCommentBox';
 
 export const dynamic = 'force-dynamic';
@@ -18,9 +18,18 @@ export default function ProductPage({ params }) {
     notFound();
   }
 
+  const productCommentsCookie = getCookie('productComments');
+  const productComments = !productCommentsCookie
+    ? []
+    : parseJson(productCommentsCookie);
+  const productToUpdate = productComments.find((productComment) => {
+    return productComment.id === products.id;
+  });
+
   return (
     <main>
       <h1>{singleProduct.name}</h1>
+      {productToUpdate.comment}
       <Image
         src={`/images/${singleProduct.name}.png`}
         width={200}

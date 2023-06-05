@@ -9,6 +9,7 @@
     ],
     "jsx": "preserve"
   },
+  "baseUrl": ".",
   "include": [
     "**/.eslintrc.cjs",
     "**/*.ts",
