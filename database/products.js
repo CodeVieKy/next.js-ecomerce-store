@@ -1,3 +1,6 @@
+import { cache } from 'react';
+import { sql } from './connect';
+
 // server side code only run in server components
 // import fs from 'node:fs';
 
@@ -16,10 +19,30 @@ export const products = [
     type: 'prosthesis',
     object: 'forearm',
   },
-  { id: 3, name: 'Makeshift Robotic leg', type: 'prosthesis', object: 'leg' },
-  { id: 4, name: 'Makeshift Robotic foot', type: 'prosthesis', object: 'foot' },
-  { id: 5, name: 'Aero full Robotic lung', type: 'internals', object: 'lung' },
-  { id: 6, name: 'Eagle full Robotic eye', type: 'internals', object: 'eye' },
+  {
+    id: 3,
+    name: 'Makeshift Robotic leg',
+    type: 'prosthesis',
+    object: 'leg   ',
+  },
+  {
+    id: 4,
+    name: 'Makeshift Robotic foot',
+    type: 'prosthesis',
+    object: 'foot   ',
+  },
+  {
+    id: 5,
+    name: 'Aero full Robotic lung',
+    type: 'internals',
+    object: 'lung   ',
+  },
+  {
+    id: 6,
+    name: 'Eagle full Robotic eye',
+    type: 'internals',
+    object: 'eye   ',
+  },
   {
     id: 7,
     name: 'Beat full Robotic heart',
@@ -43,3 +66,10 @@ export const products = [
 export function getProductById(id) {
   return products.find((product) => product.id === id);
 }
+
+export const getProducts = cache(async () => {
+  const products = await sql`
+  SELECT * FROM products;
+  `;
+  return products;
+});
