@@ -6,7 +6,7 @@ import { sql } from './connect';
 
 // fs.readFile('../app/page.js', () => {});
 
-export const products = [
+/* export const products = [
   {
     id: 1,
     name: 'Vulture full Robotic Arm',
@@ -63,13 +63,32 @@ export const products = [
   },
 ];
 
-export function getProductById(id) {
+export function getProductById(id: number) {
   return products.find((product) => product.id === id);
-}
+} */
+
+type product = {
+  id: number;
+  name: string;
+  type: string;
+  object: string | null;
+};
 
 export const getProducts = cache(async () => {
-  const products = await sql`
-  SELECT * FROM products;
+  const products = await sql<product[]>`
+  SELECT * FROM products
   `;
+  return products;
+});
+
+export const getProductById = cache(async (id: number) => {
+  const [products] = await sql<product[]>`
+    SELECT
+      *
+    FROM
+     products
+    WHERE
+    id = ${id}
+`;
   return products;
 });

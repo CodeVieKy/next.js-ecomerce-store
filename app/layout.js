@@ -1,9 +1,9 @@
 import './globals.scss';
+import '../CookieBanner';
 import { Orbitron } from 'next/font/google';
 import Link from 'next/link';
-import style from './layout.module.scss';
-import '../CookieBanner';
 import { CookieBanner } from '../CookieBanner';
+import style from './layout.module.scss';
 
 const orbitron = Orbitron({ subsets: ['latin'] });
 
@@ -21,6 +21,7 @@ export default function RootLayout({ children }) {
         <nav className={style.navigator}>
           <Link href="/">Home</Link> <Link href="/products">Products</Link>{' '}
           <Link href="/about">About</Link>
+          <Link href="/cart">Cart</Link>
           {Math.floor(Math.random() * 10)}
         </nav>
         {children}

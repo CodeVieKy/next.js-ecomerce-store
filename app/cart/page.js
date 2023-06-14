@@ -1,3 +1,9 @@
+import Link from 'next/link';
+import { getProducts } from '../../database/products';
+import { getCookie } from '../../util/cookies';
+import { parseJson } from '../../util/json';
+import styles from './cart.module.scss';
+
 export const dynamic = 'force-dynamic';
 
 export const metadata = {
@@ -25,12 +31,9 @@ export default async function CartPage() {
   const productsInCart = productWithQuantities.filter((item) => item.quantity);
 
   return (
-    <main>export default function CartPage() {
-      return <main>#</main>;
-    }
-
+    <main>
       {productsInCart.length === 0 ? (
-        <h1 className={styles.emptyCart}>🛒 Your cart is empty 🛒</h1>
+        <h1 className={styles.emptyCart}>🦾 Your cart is empty 🦾</h1>
       ) : (
         <div className={styles.cartContainer}>
           <div className={styles.cartOverviewContainer}>
@@ -71,7 +74,7 @@ export default async function CartPage() {
                     </Link>
 
                     <form data-test-id="cart-product-quantity-<product id>">
-                      <ChangeQuantity product={product} />
+                      {/* <ChangeQuantity product={product} /> */}
                     </form>
 
                     <div>€{subTotal}</div>
@@ -79,7 +82,7 @@ export default async function CartPage() {
                       data-test-id="cart-product-remove-<product id>"
                       name="remove-button"
                     >
-                      <RemoveButton product={product} name="remove-button" />
+                      {/* <RemoveButton product={product} name="remove-button" /> */}
                     </form>
                   </div>
                 );
@@ -93,14 +96,14 @@ export default async function CartPage() {
                 data-test-id="cart-total"
                 className={styles.grandTotalAmount}
               >
-                €{getCartTotal(productsInCart)}
+                {/* €{getCartTotal(productsInCart)} */}
               </div>
               <div>
                 <Link
                   className={`${styles.continueShoppingButton} ${styles.cartButton}`}
                   href="/products"
                 >
-                  Continue Shopping
+                  Continue with Shopping
                 </Link>
                 <Link
                   className={`${styles.checkoutButton} ${styles.cartButton}`}
