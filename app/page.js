@@ -7,7 +7,6 @@ export default function HomePage() {
     <main>
       <h1>Hello Cyberpunk</h1>
       <div className={styles.bgWrap}>
-        {/* <Image src={bgd} alt="backgroundpic" /> */}
         <br />
         <br />
         <br />

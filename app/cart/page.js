@@ -12,10 +12,6 @@ export const metadata = {
     'This shop sells cyberware to improve the Body you are sleeved to',
 };
 
-//export default function CartPage() {
-//  return <main>#</main>;
-//}
-
 export default async function CartPage() {
   const products = await getProducts();
   const productQuantityCookie = getCookie('cart');
